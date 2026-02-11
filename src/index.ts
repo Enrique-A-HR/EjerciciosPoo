@@ -21,9 +21,9 @@ calcularIMC(): number {
 }
 }
 
-const cliente1 = new Cliente("Juan Perez", 70, 175, "Masculino");
-const cliente2 = new Cliente("Maria Lopez", 60, 160, "Femenino");
-const cliente3 = new Cliente("Carlos Sanchez", 80, 180, "Masculino");
+let cliente1 = new Cliente("Juan Perez", 70, 175, "Masculino");
+let cliente2 = new Cliente("Maria Lopez", 60, 160, "Femenino");
+let cliente3 = new Cliente("Carlos Sanchez", 80, 180, "Masculino");
 
 
 console.log("---------- Ejercicio 1 - Cálculo de IMC ----------");
@@ -42,7 +42,7 @@ class Temperatura{
         this.valor = _valor;
         this.escala = _escala;
     }
-    convertirEnCelsius(): number {
+    convertirCelsius(): number {
         if(this.escala === "F"){
             return parseFloat(((this.valor - 32) * 5/9).toFixed(2));
         } else if(this.escala === "K"){
@@ -51,7 +51,7 @@ class Temperatura{
             return this.valor;
         }
     }
-    convertirEnFahrenheit(): number {
+    convertirFahrenheit(): number {
         if(this.escala === "C"){
             return parseFloat(((this.valor * 9/5) + 32).toFixed(2));
         } else if(this.escala === "K"){
@@ -60,7 +60,7 @@ class Temperatura{
             return this.valor;
         }
     }
-    convertirEnKelvin(): number {
+    convertirKelvin(): number {
         if(this.escala === "C"){
             return parseFloat((this.valor + 273.15).toFixed(2));
         } else if(this.escala === "F"){
@@ -70,38 +70,14 @@ class Temperatura{
         }
     }
 }
-const temp1 = new Temperatura(100, "C");
-const temp2 = new Temperatura(212, "F");
-const temp3 = new Temperatura(373.15, "K");
+let temp1 = new Temperatura(100, "C");
+let temp2 = new Temperatura(212, "F");
+let temp3 = new Temperatura(373.15, "K");
 
 console.log("------ Ejercicio 2 - Conversiones de Temperatura ------");
-console.log(`${temp1.valor}°${temp1.escala} en Fahrenheit es: ${temp1.convertirEnFahrenheit()}°F`);
-console.log(`${temp2.valor}°${temp2.escala} en Celsius es: ${temp2.convertirEnCelsius()}°C`);
-console.log(`${temp3.valor}°${temp3.escala} en Kelvin es: ${temp3.convertirEnKelvin()}K`);
-console.log("-------------------------------------------------------");
-
-//EJERCICIO #3
-//Registro de notas y contar palabras
-class Nota {
-    titulo: string;
-    detalle: string;
-
-    constructor(_titulo: string, _detalle: string){
-        this.titulo = _titulo;
-        this.detalle = _detalle;
-    }
-    contarPalabras(): number {
-        return this.detalle.split(" ").length;
-    }
-}
-const nota1 = new Nota("Reunión de Proyecto", "Tenemos una reunión programada organizar y discutir los avances del proyecto");
-const nota2 = new Nota("Lista de Compras", "Necesitamos comprar leche, pan, huevos y frutas para este mes");
-const nota3 = new Nota("Recordatorio de Cumpleaños", "El proximo sabado es el cumple de Ana y debemos comprar un regalo para ella");
-
-console.log("------ Ejercicio 3 - Contar Palabras en una Nota ------");
-console.log(`La nota "${nota1.titulo}" tiene ${nota1.contarPalabras()} palabras.`);
-console.log(`La nota "${nota2.titulo}" tiene ${nota2.contarPalabras()} palabras.`);
-console.log(`La nota "${nota3.titulo}" tiene ${nota3.contarPalabras()} palabras.`);
+console.log(`${temp1.valor}°${temp1.escala} en Fahrenheit es: ${temp1.convertirFahrenheit()}°F`);
+console.log(`${temp2.valor}°${temp2.escala} en Celsius es: ${temp2.convertirCelsius()}°C`);
+console.log(`${temp3.valor}°${temp3.escala} en Fahrenheit es: ${temp3.convertirFahrenheit()}°F`);
 console.log("-------------------------------------------------------");
 
 //EJERCICIO #4
@@ -114,7 +90,7 @@ class Estudiante {
         this.nombre = _nombre;
         this.infraccion = _infraccion;
     }
-    calcularSancion(): string {
+    calcSancion(): string {
         if(this.infraccion === 1){
             return "Sanción por llegada tardía";
         }
@@ -129,7 +105,7 @@ class Estudiante {
         }
         return "Sin sanción";
     }
-    calcularMonto(): number {
+    calcMonto(): number {
         if(this.infraccion === 1){
             return 1;
         }
@@ -145,12 +121,12 @@ class Estudiante {
         return 0;
     }
 }
-const estudiante1 = new Estudiante("Luis Gomez", 1);
-const estudiante2 = new Estudiante("Ana Martinez", 3);
-const estudiante3 = new Estudiante("Pedro Rodriguez", 4);
+let estudiante1 = new Estudiante("Luis Gomez", 1);
+let estudiante2 = new Estudiante("Ana Martinez", 3);
+let estudiante3 = new Estudiante("Pedro Rodriguez", 4);
 
 console.log("------ Ejercicio 4 - Sanciones para Estudiantes ------");
-console.log(`${estudiante1.nombre} tiene: ${estudiante1.calcularSancion()} con un monto de $${estudiante1.calcularMonto()}`);
-console.log(`${estudiante2.nombre} tiene: ${estudiante2.calcularSancion()} con un monto de $${estudiante2.calcularMonto()}`);
-console.log(`${estudiante3.nombre} tiene: ${estudiante3.calcularSancion()} con un monto de $${estudiante3.calcularMonto()}`);
+console.log(`${estudiante1.nombre} tiene: ${estudiante1.calcSancion()} con un monto de $${estudiante1.calcMonto()}`);
+console.log(`${estudiante2.nombre} tiene: ${estudiante2.calcSancion()} con un monto de $${estudiante2.calcMonto()}`);
+console.log(`${estudiante3.nombre} tiene: ${estudiante3.calcSancion()} con un monto de $${estudiante3.calcMonto()}`);
 console.log("-------------------------------------------------------");
